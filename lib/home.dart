@@ -52,15 +52,20 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
   }
 
   Widget _deviceInfo() {
-    return Column(
-      children: [
-        const Text(
-          "Device Information",
-          style: TextStyle(fontSize: 20),
-        ),
-        Text("Device Type: $_platformType"),
-        Text("Device Data: $_deviceData"),
-      ],
+    return SizedBox(
+      height: 300,
+      child: Column(
+        children: [
+          const Text(
+            "Device Information",
+            style: TextStyle(fontSize: 20),
+          ),
+          Text("Device Type: $_platformType"),
+          Text(
+            "Device Data: ${_deviceData.toString().length > 100 ? _deviceData.toString().substring(0, 800) : _deviceData}",
+          ),
+        ],
+      ),
     );
   }
 
